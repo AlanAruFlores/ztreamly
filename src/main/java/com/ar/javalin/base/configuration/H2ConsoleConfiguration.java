@@ -12,7 +12,8 @@ public class H2ConsoleConfiguration {
 
     public void startH2Console(String port) {
         try {
-            String persistenceUnitName = System.getenv("PROFILE");
+            String persistenceUnitName = System.getenv("PROFILE") != null 
+            ? System.getenv("PROFILE") : "dev";
 
             if(!persistenceUnitName.equalsIgnoreCase("dev")) {
                 log.info("H2 Console is only available in development mode. Current mode: {}", persistenceUnitName);

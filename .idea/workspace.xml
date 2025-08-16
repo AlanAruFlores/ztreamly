@@ -4,26 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d7ea3a6-4927-40ba-aafd-cf89f96c1260" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ar/javalin/base/configuration/LocalPersistenceConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ar/javalin/base/configuration/PersistenceLoadConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ar/javalin/base/configuration/ProdPersistenceConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ar/javalin/base/utils/annotations/Profile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ar/javalin/base/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ar/javalin/base/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ar/javalin/base/AppModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ar/javalin/base/AppModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ar/javalin/base/configuration/H2ConsoleConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ar/javalin/base/configuration/H2ConsoleConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ar/javalin/base/configuration/PersistenceConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ar/javalin/base/configuration/PersistenceConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ar/javalin/base/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ar/javalin/base/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ar/javalin/base/AppModule.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ar/javalin/base/AppModule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ar/javalin/base/configuration/H2ConsoleConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ar/javalin/base/configuration/H2ConsoleConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ar/javalin/base/configuration/PersistenceConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ar/javalin/base/configuration/PersistenceConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/truncon/javalin/mvc/JavalinControllerRegistry.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/truncon/javalin/mvc/JavalinControllerRegistry.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/truncon/javalin/mvc/JavalinControllerRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/truncon/javalin/mvc/JavalinControllerRegistry.java" afterDir="false" />
-    </list>
+    <list default="true" id="8d7ea3a6-4927-40ba-aafd-cf89f96c1260" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,15 +30,26 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.App.executor": "Debug",
+    "Application.App.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "feature/mvc-javalin",
-    "last_opened_file_path": "C:/Users/Alan/Desktop/javalin/first-project",
+    "last_opened_file_path": "C:/Users/Alan/Desktop/Streamly/javalin-base-project/src/main/resources/public/fonts",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Alan\Desktop\Streamly\javalin-base-project\src\main\resources\public\fonts" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Alan\Desktop\Streamly\javalin-base-project\src\main\resources\public" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application">
       <envs>
@@ -92,11 +84,6 @@
           <properties class="org.hibernate.exception.GenericJDBCException" package="org.hibernate.exception" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ar/javalin/base/configuration/PersistenceLoadConfiguration.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

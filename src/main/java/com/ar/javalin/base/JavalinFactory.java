@@ -65,6 +65,10 @@ public final class JavalinFactory {
             
             // Re-enabling static files from the 'public' directory
             config.staticFiles.add(PathUtilsConstants.WEB_RESOURCE_PATH, Location.EXTERNAL);
+            config.staticFiles.add(PathUtilsConstants.CSS_RESOURCE_PATH, Location.EXTERNAL);
+            config.staticFiles.add(PathUtilsConstants.JS_RESOURCE_PATH, Location.EXTERNAL);
+            config.staticFiles.add(PathUtilsConstants.IMG_RESOURCE_PATH, Location.EXTERNAL);
+            config.staticFiles.add(PathUtilsConstants.FONTS_RESOURCE_PATH, Location.EXTERNAL);
         });
 
         // Javalin MVC generates "com.truncon.javalin.mvc.JavalinControllerRegistry" automatically at compile time

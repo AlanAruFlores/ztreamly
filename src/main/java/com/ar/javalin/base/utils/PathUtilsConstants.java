@@ -11,6 +11,10 @@ import lombok.experimental.UtilityClass;
 public final class PathUtilsConstants {
 
     public static String WEB_RESOURCE_PATH;
+    public static String CSS_RESOURCE_PATH;
+    public static String JS_RESOURCE_PATH;
+    public static String IMG_RESOURCE_PATH;
+    public static String FONTS_RESOURCE_PATH;
 
     static {
         loadResources();
@@ -21,6 +25,10 @@ public final class PathUtilsConstants {
         AppSettings settings =  injector.getInstance(AppSettings.class);
 
         WEB_RESOURCE_PATH = settings.getHtmlResourcePath();
+        CSS_RESOURCE_PATH = settings.getCssResourcePath();
+        JS_RESOURCE_PATH = settings.getJsResourcePath();
+        IMG_RESOURCE_PATH = settings.getImgResourcePath();
+        FONTS_RESOURCE_PATH = settings.getFontsResourcePath();
     }
 
 }

@@ -47,6 +47,31 @@ public class AppSettings implements ApplicationSettings{
             .orElseThrow(() -> new IllegalStateException("Resource path is not configured in application.conf"));
     }
 
+    @Override
+    public String getCssResourcePath(){
+        return getWebResourcesConfig().getString("css")
+            .orElseThrow(() -> new IllegalStateException("Resource path is not configured in application.conf"));
+    }
+    
+    @Override
+    public String getJsResourcePath(){
+        return getWebResourcesConfig().getString("js")
+            .orElseThrow(() -> new IllegalStateException("Resource path is not configured in application.conf"));
+    }
+    
+    @Override
+    public String getImgResourcePath(){
+        return getWebResourcesConfig().getString("img")
+            .orElseThrow(() -> new IllegalStateException("Resource path is not configured in application.conf"));
+    }
+    
+    
+    @Override
+    public String getFontsResourcePath(){
+        return getWebResourcesConfig().getString("fonts")
+            .orElseThrow(() -> new IllegalStateException("Resource path is not configured in application.conf"));
+    }
+
     public ConfigWrapper getWebServerConfig(){
         return this.configWrapper.atPath("web.server");
     }
