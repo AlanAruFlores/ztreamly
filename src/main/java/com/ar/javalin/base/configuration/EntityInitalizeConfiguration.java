@@ -3,7 +3,6 @@ package com.ar.javalin.base.configuration;
 import com.ar.javalin.base.models.Item;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 

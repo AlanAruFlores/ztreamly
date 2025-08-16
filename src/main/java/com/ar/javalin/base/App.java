@@ -10,7 +10,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.ar.javalin.base.configuration.H2ConsoleConfiguration;
-import com.ar.javalin.base.configuration.PersistenceConfiguration;
 import com.ar.javalin.base.settings.ApplicationSettings;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
