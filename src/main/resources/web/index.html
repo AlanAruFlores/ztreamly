@@ -4,9 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
 <body>
-    <h1>Ztreamly</h1>
+    <header class="header">
+        <h1 class="header__title">Ztreamly</h1>
+        <div class="header__nav">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-user"></i>
+        </div>
+    </header>
+    <main class="main">
+        <h2 class="main__title">Explorar</h2>
+        <div class="carousel-container">
+            <button class="carousel-btn carousel-btn--prev">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <div class="carrousel">
+                <div class="card">
+                    <h3>Gaming</h3>
+                </div>
+                <div class="card">
+                    <h3>Chill</h3>
+                </div>
+                <div class="card">
+                    <h3>Funny</h3>
+                </div>    
+                <div class="card">
+                    <h3>Music</h3>
+                </div>
+                <div class="card">
+                    <h3>Movies</h3>
+                </div>
+            </div>
+            <button class="carousel-btn carousel-btn--next">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <div class="main__videos">
+            <div class="video">
+                <div class="video__img">
+                    <img src="https://media.licdn.com/dms/image/v2/C4E12AQFWPBuSSsqZCA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1646728130733?e=2147483647&v=beta&t=mxGaTJK-gkOoZtwp3l_xTDWxT8p97FXvgB1VvpKgibw" alt="Video Thumbnail" class="video__thumbnail">
+                </div>
+                <div class="video__description">
+                    <div class="video__avatar">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjDGMp734S91sDuUFqL51_xRTXS15iiRoHew&s" alt="Avatar" class="video__avatar">
+                    </div>
+                    <div class="video__info">
+                        <h5>Titulo</h5>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum, molestiae?....</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <footer class="footer">
+    
+    </footer>
+    <script src="carousel.js"></script>
 </body>
 </html>

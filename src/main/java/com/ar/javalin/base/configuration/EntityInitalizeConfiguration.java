@@ -1,8 +1,11 @@
 package com.ar.javalin.base.configuration;
 
-import com.ar.javalin.base.models.Item;
+import javax.inject.Inject;
+
+import com.ar.javalin.base.models.User;
+import com.ar.javalin.base.models.Video;
+
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
@@ -10,10 +13,16 @@ import lombok.extern.slf4j.Slf4j;
 @Getter
 public class EntityInitalizeConfiguration {
 
-    public void initEntityConfiguration(EntityManagerFactory emf){
+    private EntityManager em;
+
+    @Inject
+    public EntityInitalizeConfiguration(EntityManager em) {
+        this.em = em;
+    }
+
+    public void initEntityConfiguration(){
         try{
             log.info("Initializing Entity Configuration");
-            EntityManager em = emf.createEntityManager();
             em.getTransaction().begin();
             initCreatingEntities(em);
             em.getTransaction().commit();
@@ -26,6 +35,7 @@ public class EntityInitalizeConfiguration {
     }
 
     private void initCreatingEntities(EntityManager em) {
-        em.persist(Item.builder().description("init").build());
+        em.persist(Video.builder().build());
+        em.persist(User.builder().build());
     }
 }
