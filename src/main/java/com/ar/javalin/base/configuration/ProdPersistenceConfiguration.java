@@ -1,6 +1,8 @@
 package com.ar.javalin.base.configuration;
 
 import com.ar.javalin.base.utils.annotations.Profile;
+
+import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -44,5 +46,6 @@ public class ProdPersistenceConfiguration implements PersistenceConfiguration{
         settings.put("hibernate.connection.autoReconnect", "true");
 
         return new HibernatePersistenceProvider().createEntityManagerFactory("prod", settings);
+        
     }
 }

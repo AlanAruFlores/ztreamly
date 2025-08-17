@@ -1,7 +1,6 @@
 package com.truncon.javalin.mvc;
 
 import com.ar.javalin.base.controller.HomeController;
-import com.ar.javalin.base.controller.ItemController;
 import com.truncon.javalin.mvc.api.ActionResult;
 import com.truncon.javalin.mvc.api.HttpContext;
 import com.truncon.javalin.mvc.api.Injector;
@@ -27,16 +26,8 @@ public final class JavalinControllerRegistry implements ControllerRegistry {
         result.execute(wrapper);
     }
 
-    private void httpHandler1(Context ctx) throws Exception {
-        HttpContext wrapper = new JavalinHttpContext(ctx);
-        ItemController controller = new ItemController();
-        ActionResult result = controller.index();
-        result.execute(wrapper);
-    }
-
     @Override
     public void register(Javalin app) {
         app.get("/", this::httpHandler0);
-        app.get("/index", this::httpHandler1);
     }
 }
