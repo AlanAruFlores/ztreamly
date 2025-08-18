@@ -1,7 +1,6 @@
 package com.ar.javalin.base;
 
 import com.ar.javalin.base.configuration.DataInitializerConfiguration;
-import com.ar.javalin.base.configuration.EntityInitalizeConfiguration;
 import com.ar.javalin.base.configuration.H2ConsoleConfiguration;
 import com.ar.javalin.base.configuration.PersistenceLoadConfigurationProvider;
 import com.ar.javalin.base.exceptions.api.ExceptionHandlerContext;
@@ -24,15 +23,13 @@ public final class AppModule extends AbstractModule{
 
         //Providers
         bind(Injector.class).toProvider(RequestInjectorProvider.class);
+        bind(PersistenceLoadConfigurationProvider.class).in(Scopes.SINGLETON);
         bind(EntityManager.class).toProvider(PersistenceLoadConfigurationProvider.class);
 
 
         bind(JavalinFactory.class);
         bind(App.class);
-        bind(EntityInitalizeConfiguration.class).in(Scopes.SINGLETON);
         bind(H2ConsoleConfiguration.class).in(Scopes.SINGLETON);
-
-        //Settings
         bind(ApplicationSettings.class).to(AppSettings.class);
         bind(AppSettings.class).toProvider(AppSettings::newInstance).in(Scopes.SINGLETON);
         bind(DataInitializerConfiguration.class).in(Scopes.SINGLETON);
