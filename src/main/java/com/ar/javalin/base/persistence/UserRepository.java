@@ -23,7 +23,9 @@ public class UserRepository {
 
     public Optional<User> save(User user){
         try {
+            entityManager.getTransaction().begin();
             entityManager.persist(user);
+            entityManager.getTransaction().commit();
             log.info("Saving user: {}", user.getUsername());
         } catch (Exception e) {
             log.error("Error saving user: {}", e.getMessage());

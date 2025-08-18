@@ -3,7 +3,6 @@ package com.ar.javalin.base;
 import java.io.IOException;
 import javax.inject.Inject;
 import com.ar.javalin.base.configuration.DataInitializerConfiguration;
-import com.ar.javalin.base.configuration.EntityInitalizeConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.ar.javalin.base.configuration.H2ConsoleConfiguration;
@@ -20,7 +19,6 @@ public final class App {
     private final Javalin app;
     private final ApplicationSettings settings;
     private final H2ConsoleConfiguration h2Configuration;
-    private final EntityInitalizeConfiguration entityInitalizeConfiguration;
     private final DataInitializerConfiguration dataqInitializerConfiguration;
 
     static {
@@ -30,12 +28,10 @@ public final class App {
     @Inject
     public App(JavalinFactory javalinFactory, ApplicationSettings settings,
                H2ConsoleConfiguration h2ConsoleConfiguration,
-               EntityInitalizeConfiguration entityInitalizeConfiguration,
                DataInitializerConfiguration dataInitializerConfiguration) {
         this.app = javalinFactory.create();
         this.settings = settings;
         this.h2Configuration = h2ConsoleConfiguration;
-        this.entityInitalizeConfiguration = entityInitalizeConfiguration;
         this.dataqInitializerConfiguration = dataInitializerConfiguration;
     }
 
@@ -43,7 +39,6 @@ public final class App {
         try{
             Injector injector = Guice.createInjector(new AppModule());
             App app = injector.getInstance(App.class);
-            app.entityInitalizeConfiguration.initEntityConfiguration();
             app.dataqInitializerConfiguration.initDataConfiguration();
             app.h2Configuration.startH2Console(String.valueOf(app.settings.getH2Port()));
             app.start();
@@ -54,18 +49,9 @@ public final class App {
         }
     }
 
-
-    /**
-     * Starts the Javalin application on the port specified in the settings.
-     */
-
     public void start(){
         app.start(settings.getPort());
     }
-
-    /**
-     * Stops the Javalin application gracefully.
-     */
 
     public void stop(){
         app.stop();

@@ -22,7 +22,9 @@ public class VideoRepository {
 
     public Optional<Video> save(Video video) {
         try {
+            entityManager.getTransaction().begin();
             entityManager.persist(video);
+            entityManager.getTransaction().commit();
             log.info("Saving video: {}", video.getTitle());
         } catch (Exception e) {
             log.error("Error saving video: {}", e.getMessage());
