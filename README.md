@@ -1,7 +1,5 @@
 # Ztreamly
 
-Este proyecto es una aplicación web desarrollada con [Javalin 6](https://javalin.io/), un framework ligero y moderno para Java y Kotlin, con soporte completo para OpenAPI y Swagger.
-
 ## Características del Proyecto
 
 Esta aplicación incluye:
