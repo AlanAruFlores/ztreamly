@@ -4,7 +4,7 @@
 
 Esta aplicación incluye:
 
-- **Javalin 6.6.0** con Jetty embebido
+- **Javalin** con Jetty embebido
 - **OpenAPI 3.0** para documentación automática de APIs
 - **Swagger UI** para visualización interactiva de la documentación
 - **Javalin MVC** para arquitectura basada en controladores
