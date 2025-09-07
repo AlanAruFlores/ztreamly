@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         $.ajax({
-            url: '/api/users',
+            url: 'localhost:9090/api/users',
             type: 'POST',
             data: user,
             success: (response) => {

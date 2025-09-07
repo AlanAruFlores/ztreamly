@@ -22,6 +22,27 @@ public final class JavalinControllerRegistry implements ControllerRegistry {
         this.scopeFactory = scopeFactory;
     }
 
+    private void httpHandler0(Context ctx) throws Exception {
+        HttpContext wrapper = new JavalinHttpContext(ctx);
+        ViewController controller = new ViewController();
+        ActionResult result = controller.getHomePage();
+        result.execute(wrapper);
+    }
+
+    private void httpHandler1(Context ctx) throws Exception {
+        HttpContext wrapper = new JavalinHttpContext(ctx);
+        ViewController controller = new ViewController();
+        ActionResult result = controller.getLoginPage();
+        result.execute(wrapper);
+    }
+
+    private void httpHandler2(Context ctx) throws Exception {
+        HttpContext wrapper = new JavalinHttpContext(ctx);
+        ViewController controller = new ViewController();
+        ActionResult result = controller.getRegisterPage();
+        result.execute(wrapper);
+    }
+
     private static <T> T toJson(HttpContext context, Class<T> type) {
         try {
             HttpRequest request = context.getRequest();
@@ -31,39 +52,10 @@ public final class JavalinControllerRegistry implements ControllerRegistry {
         }
     }
 
-    private void httpHandler0(Context ctx) throws Exception {
-        HttpContext wrapper = new JavalinHttpContext(ctx);
-        UserAPIController controller = new UserAPIController();
-        ActionResult result = controller.createUser(toJson(wrapper, com.ar.javalin.base.models.User.class));
-        result.execute(wrapper);
-    }
-
-    private void httpHandler1(Context ctx) throws Exception {
-        HttpContext wrapper = new JavalinHttpContext(ctx);
-        ViewController controller = new ViewController();
-        ActionResult result = controller.getHomePage();
-        result.execute(wrapper);
-    }
-
-    private void httpHandler2(Context ctx) throws Exception {
-        HttpContext wrapper = new JavalinHttpContext(ctx);
-        ViewController controller = new ViewController();
-        ActionResult result = controller.getLoginPage();
-        result.execute(wrapper);
-    }
-
-    private void httpHandler3(Context ctx) throws Exception {
-        HttpContext wrapper = new JavalinHttpContext(ctx);
-        ViewController controller = new ViewController();
-        ActionResult result = controller.getRegisterPage();
-        result.execute(wrapper);
-    }
-
     @Override
     public void register(Javalin app) {
-        app.post("/api/users/", this::httpHandler0);
-        app.get("/", this::httpHandler1);
-        app.get("/login", this::httpHandler2);
-        app.get("/register", this::httpHandler3);
+        app.get("/", this::httpHandler0);
+        app.get("/login", this::httpHandler1);
+        app.get("/register", this::httpHandler2);
     }
 }
