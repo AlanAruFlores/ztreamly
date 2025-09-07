@@ -1,12 +1,15 @@
 package com.truncon.javalin.mvc;
 
+import com.ar.javalin.base.controller.UserAPIController;
 import com.ar.javalin.base.controller.ViewController;
 import com.truncon.javalin.mvc.api.ActionResult;
 import com.truncon.javalin.mvc.api.HttpContext;
+import com.truncon.javalin.mvc.api.HttpRequest;
 import com.truncon.javalin.mvc.api.Injector;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 import jakarta.annotation.Generated;
+import java.lang.Class;
 import java.lang.Exception;
 import java.lang.Override;
 import java.util.function.Supplier;
@@ -38,6 +41,15 @@ public final class JavalinControllerRegistry implements ControllerRegistry {
         ViewController controller = new ViewController();
         ActionResult result = controller.getRegisterPage();
         result.execute(wrapper);
+    }
+
+    private static <T> T toJson(HttpContext context, Class<T> type) {
+        try {
+            HttpRequest request = context.getRequest();
+            return request.getBodyFromJson(type);
+        } catch (Exception exception) {
+            return null;
+        }
     }
 
     @Override
