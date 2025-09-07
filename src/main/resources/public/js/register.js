@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const registerButton = document.getElementById('register_button');
     registerButton.addEventListener('click', () => {
+        console.log('Register button clicked');
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
         const email = document.getElementById('email').value;
