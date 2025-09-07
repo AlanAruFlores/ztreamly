@@ -26,6 +26,11 @@ public class User {
     private Long id;
     private String username;
     private String password;
+    private String email;
+    private String telephone;
+    private String phone;
+    private String birthdate;
+    private String country;
     private String role;
     
     @Lob
