@@ -6,6 +6,7 @@ import com.ar.javalin.base.configuration.PersistenceLoadConfigurationProvider;
 import com.ar.javalin.base.exceptions.api.ExceptionHandlerContext;
 import com.ar.javalin.base.persistence.UserRepository;
 import com.ar.javalin.base.persistence.VideoRepository;
+import com.ar.javalin.base.services.UserService;
 import com.ar.javalin.base.settings.AppSettings;
 import com.ar.javalin.base.settings.ApplicationSettings;
 import com.google.inject.AbstractModule;
@@ -37,6 +38,9 @@ public final class AppModule extends AbstractModule{
         //Repositories
         bind(UserRepository.class).in(Singleton.class);
         bind(VideoRepository.class).in(Singleton.class);
+
+        //Services
+        bind(UserService.class).in(Singleton.class);
 
 
         //Exception Handler

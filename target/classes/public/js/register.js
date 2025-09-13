@@ -20,14 +20,17 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         $.ajax({
-            url: 'localhost:9090/api/users',
+            url: 'http://localhost:9090/api/users/',
             type: 'POST',
-            data: user,
+            contentType: 'application/json',
+            data: JSON.stringify(user),
             success: (response) => {
-                console.log(response);
+                console.log('Success:', response);
+                alert('Usuario registrado exitosamente!');
             },
             error: (error) => {
-                console.log(error);
+                console.log('Error:', error);
+                alert('Error al registrar usuario: ' + error.responseText);
             }
         });
     });
