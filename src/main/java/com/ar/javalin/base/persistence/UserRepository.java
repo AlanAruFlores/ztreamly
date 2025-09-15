@@ -35,5 +35,18 @@ public class UserRepository {
         return Optional.of(user);
     }
 
+    public Optional<User> findByUsernameAndPassword(User user){
+        try {
+            User foundUser = entityManager.createQuery("SELECT u FROM User u WHERE u.username = :username AND u.password = :password", User.class)
+                .setParameter("username", user.getUsername())
+                .setParameter("password", user.getPassword())
+                .getSingleResult();
+            log.info("User found: {}", user.getUsername());
+            return Optional.of(foundUser);
+        } catch (Exception e) {
+            log.error("Error finding user: {}", e.getMessage());
+            return Optional.empty();
+        }      
+    }
     
 } 

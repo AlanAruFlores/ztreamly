@@ -40,20 +40,28 @@ public final class JavalinControllerRegistry implements ControllerRegistry {
     }
 
     private void httpHandler1(Context ctx) throws Exception {
+        Injector injector = scopeFactory.get();
         HttpContext wrapper = new JavalinHttpContext(ctx);
-        ViewController controller = new ViewController();
-        ActionResult result = controller.getHomePage();
+        UserAPIController controller = injector.getInstance(UserAPIController.class);
+        ActionResult result = controller.loginUser(toJson(wrapper, com.ar.javalin.base.dto.request.UserRequestLogin.class));
         result.execute(wrapper);
     }
 
     private void httpHandler2(Context ctx) throws Exception {
         HttpContext wrapper = new JavalinHttpContext(ctx);
         ViewController controller = new ViewController();
-        ActionResult result = controller.getLoginPage();
+        ActionResult result = controller.getHomePage();
         result.execute(wrapper);
     }
 
     private void httpHandler3(Context ctx) throws Exception {
+        HttpContext wrapper = new JavalinHttpContext(ctx);
+        ViewController controller = new ViewController();
+        ActionResult result = controller.getLoginPage();
+        result.execute(wrapper);
+    }
+
+    private void httpHandler4(Context ctx) throws Exception {
         HttpContext wrapper = new JavalinHttpContext(ctx);
         ViewController controller = new ViewController();
         ActionResult result = controller.getRegisterPage();
@@ -62,9 +70,10 @@ public final class JavalinControllerRegistry implements ControllerRegistry {
 
     @Override
     public void register(Javalin app) {
-        app.post("/api/users/", this::httpHandler0);
-        app.get("/", this::httpHandler1);
-        app.get("/login", this::httpHandler2);
-        app.get("/register", this::httpHandler3);
+        app.post("/api/users/register", this::httpHandler0);
+        app.post("/api/users/login", this::httpHandler1);
+        app.get("/", this::httpHandler2);
+        app.get("/login", this::httpHandler3);
+        app.get("/register", this::httpHandler4);
     }
 }

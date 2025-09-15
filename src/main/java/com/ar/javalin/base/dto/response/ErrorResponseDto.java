@@ -4,6 +4,6 @@ import lombok.Builder;
 
 @Builder
 public class ErrorResponseDto {
-    public int code;
+    public Integer code;
     public String message;
 }
