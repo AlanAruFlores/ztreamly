@@ -1,5 +1,6 @@
 package com.ar.javalin.base.dto.request;
 
+
 import com.google.auto.value.AutoValue.Builder;
 
 import lombok.Data;

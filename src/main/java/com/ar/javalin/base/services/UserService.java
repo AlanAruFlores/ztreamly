@@ -1,9 +1,9 @@
 package com.ar.javalin.base.services;
 
 import java.util.Optional;
-
 import com.ar.javalin.base.dto.request.UserRequestLogin;
-import com.ar.javalin.base.dto.response.UserResponseLoginInfo;
+import com.ar.javalin.base.dto.request.UserRequestRegister;
+import com.ar.javalin.base.dto.response.UserResponseInfo;
 import com.ar.javalin.base.mappers.UserMapper;
 import com.ar.javalin.base.models.User;
 import com.ar.javalin.base.persistence.UserRepository;
@@ -25,17 +25,19 @@ public class UserService {
         this.userMapper = userMapper;
     }
 
-    public Optional<User> save(User user) {
+    public Optional<UserResponseInfo> register(UserRequestRegister userToRegister) {        
         try{
+            User user = userMapper.toUserFromUserRequestRegister(userToRegister);
             log.info("Saving user: {}", user.getUsername());
-            return userRepository.save(user);
+            UserResponseInfo result = userMapper.toUserResponseInfoFromUser(user);
+            return Optional.of(result);
         }catch(Exception e){
             log.error("Error saving user: {}", e.getMessage());
             return Optional.empty();
         }
     }
 
-    public Optional<UserResponseLoginInfo> login(UserRequestLogin userRequestLogin){
+    public Optional<UserResponseInfo> login(UserRequestLogin userRequestLogin){
         try{
             log.info("Logging in user: {}", userRequestLogin.getUsername());
             User user = userMapper.toUserFromUserRequestLogin(userRequestLogin);
@@ -46,7 +48,7 @@ public class UserService {
             }
 
             log.info("User logged in successfully: {}", userRequestLogin.getUsername());
-            return Optional.of(userMapper.toUserResponseLoginInfoFromUser(result.get()));
+            return Optional.of(userMapper.toUserResponseInfoFromUser(result.get()));
         }catch(Exception e){
             log.error("Error logging in user: {}", e.getMessage());
             return Optional.empty();

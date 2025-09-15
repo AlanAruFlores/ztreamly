@@ -35,7 +35,7 @@ public final class JavalinControllerRegistry implements ControllerRegistry {
         Injector injector = scopeFactory.get();
         HttpContext wrapper = new JavalinHttpContext(ctx);
         UserAPIController controller = injector.getInstance(UserAPIController.class);
-        ActionResult result = controller.createUser(toJson(wrapper, com.ar.javalin.base.models.User.class));
+        ActionResult result = controller.createUser(toJson(wrapper, com.ar.javalin.base.dto.request.UserRequestRegister.class));
         result.execute(wrapper);
     }
 

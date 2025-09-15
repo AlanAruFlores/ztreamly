@@ -3,8 +3,9 @@ package com.ar.javalin.base.controller;
 import javax.inject.Inject;
 
 import com.ar.javalin.base.dto.request.UserRequestLogin;
+import com.ar.javalin.base.dto.request.UserRequestRegister;
 import com.ar.javalin.base.dto.response.JsonResponseDto;
-import com.ar.javalin.base.dto.response.UserResponseLoginInfo;
+import com.ar.javalin.base.dto.response.UserResponseInfo;
 import com.ar.javalin.base.models.User;
 import com.truncon.javalin.mvc.api.Controller;
 import com.truncon.javalin.mvc.api.HttpPost;
@@ -25,14 +26,21 @@ public class UserAPIController {
     }
 
     @HttpPost(route = "/register")
-    public ActionResult createUser(@FromBody User user) {
-        userService.save(user);
-        return new ContentResult("User created successfully",200);
+    public ActionResult createUser(@FromBody UserRequestRegister userToRegister) {
+        UserResponseInfo result = userService.register(userToRegister).get();
+
+        return new JsonResult(
+            JsonResponseDto.builder()
+            .status(200)
+            .message("User registered successfully")
+            .data(result)
+            .build()
+            ,200);
     }
 
     @HttpPost(route = "/login")
     public ActionResult loginUser(@FromBody UserRequestLogin userToLogin){
-        UserResponseLoginInfo result = userService.login(userToLogin).get();
+        UserResponseInfo result = userService.login(userToLogin).get();
 
         return new JsonResult(
             JsonResponseDto.builder()
