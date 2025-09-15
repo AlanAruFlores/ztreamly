@@ -4,6 +4,8 @@ import com.ar.javalin.base.configuration.DataInitializerConfiguration;
 import com.ar.javalin.base.configuration.H2ConsoleConfiguration;
 import com.ar.javalin.base.configuration.PersistenceLoadConfigurationProvider;
 import com.ar.javalin.base.exceptions.api.ExceptionHandlerContext;
+import com.ar.javalin.base.mappers.UserMapper;
+import com.ar.javalin.base.mappers.UserMapperProvider;
 import com.ar.javalin.base.persistence.UserRepository;
 import com.ar.javalin.base.persistence.VideoRepository;
 import com.ar.javalin.base.services.UserService;
@@ -42,6 +44,8 @@ public final class AppModule extends AbstractModule{
         //Services
         bind(UserService.class).in(Singleton.class);
 
+        //Mappers
+        bind(UserMapper.class).toProvider(UserMapperProvider.class).in(Singleton.class);
 
         //Exception Handler
         bind(ExceptionHandlerContext.class).toProvider(ExceptionHandlerContext::newInstance).in(Scopes.SINGLETON);
