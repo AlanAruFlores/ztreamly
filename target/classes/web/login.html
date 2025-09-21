@@ -17,7 +17,7 @@
     <main class="main">
         <div class="login">
             <h2 class="login__title">Login</h2>
-            <form class="login__form">
+            <form class="login__form" method="post">
                 <div class="login__form-group">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" required>
@@ -26,7 +26,10 @@
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" required>
                 </div>
-                <button type="submit" class="login__submit">Ingresar</button>
+                <button class="login__submit" id="login_button">Ingresar</button>
+                <span>
+                    Si no tienes una cuenta, <a href="register.html">Crea una nueva!</a>
+                </span>
             </form>
         </div>
     </main>
@@ -51,6 +54,7 @@
             <p>&copy; 2023 Ztreamly. All rights reserved.</p>
         </div>
     </footer>
-    <script src="carousel.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="login.js"></script>
 </body>
 </html>
