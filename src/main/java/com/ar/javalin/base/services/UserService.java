@@ -35,7 +35,7 @@ public class UserService {
             return Optional.of(result);
         }catch(Exception e){
             log.error("Error saving user: {}", e.getMessage());
-            return Optional.empty();
+            throw new InternalServerException(e);
         }
     }
 
