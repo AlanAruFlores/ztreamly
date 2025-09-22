@@ -8,7 +8,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-09-14T21:37:09-0300",
+    date = "2025-09-21T21:07:08-0300",
     comments = "version: 1.6.0.Beta1, compiler: Eclipse JDT (IDE) 3.43.0.v20250819-1513, environment: Java 21.0.8 (Eclipse Adoptium)"
 )
 public class UserMapperImpl implements UserMapper {

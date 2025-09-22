@@ -22,6 +22,27 @@ public final class JavalinControllerRegistry implements ControllerRegistry {
         this.scopeFactory = scopeFactory;
     }
 
+    private void httpHandler0(Context ctx) throws Exception {
+        HttpContext wrapper = new JavalinHttpContext(ctx);
+        ViewController controller = new ViewController();
+        ActionResult result = controller.getHomePage();
+        result.execute(wrapper);
+    }
+
+    private void httpHandler1(Context ctx) throws Exception {
+        HttpContext wrapper = new JavalinHttpContext(ctx);
+        ViewController controller = new ViewController();
+        ActionResult result = controller.getLoginPage();
+        result.execute(wrapper);
+    }
+
+    private void httpHandler2(Context ctx) throws Exception {
+        HttpContext wrapper = new JavalinHttpContext(ctx);
+        ViewController controller = new ViewController();
+        ActionResult result = controller.getRegisterPage();
+        result.execute(wrapper);
+    }
+
     private static <T> T toJson(HttpContext context, Class<T> type) {
         try {
             HttpRequest request = context.getRequest();
@@ -31,7 +52,7 @@ public final class JavalinControllerRegistry implements ControllerRegistry {
         }
     }
 
-    private void httpHandler0(Context ctx) throws Exception {
+    private void httpHandler3(Context ctx) throws Exception {
         Injector injector = scopeFactory.get();
         HttpContext wrapper = new JavalinHttpContext(ctx);
         UserAPIController controller = injector.getInstance(UserAPIController.class);
@@ -39,7 +60,7 @@ public final class JavalinControllerRegistry implements ControllerRegistry {
         result.execute(wrapper);
     }
 
-    private void httpHandler1(Context ctx) throws Exception {
+    private void httpHandler4(Context ctx) throws Exception {
         Injector injector = scopeFactory.get();
         HttpContext wrapper = new JavalinHttpContext(ctx);
         UserAPIController controller = injector.getInstance(UserAPIController.class);
@@ -47,33 +68,12 @@ public final class JavalinControllerRegistry implements ControllerRegistry {
         result.execute(wrapper);
     }
 
-    private void httpHandler2(Context ctx) throws Exception {
-        HttpContext wrapper = new JavalinHttpContext(ctx);
-        ViewController controller = new ViewController();
-        ActionResult result = controller.getHomePage();
-        result.execute(wrapper);
-    }
-
-    private void httpHandler3(Context ctx) throws Exception {
-        HttpContext wrapper = new JavalinHttpContext(ctx);
-        ViewController controller = new ViewController();
-        ActionResult result = controller.getLoginPage();
-        result.execute(wrapper);
-    }
-
-    private void httpHandler4(Context ctx) throws Exception {
-        HttpContext wrapper = new JavalinHttpContext(ctx);
-        ViewController controller = new ViewController();
-        ActionResult result = controller.getRegisterPage();
-        result.execute(wrapper);
-    }
-
     @Override
     public void register(Javalin app) {
-        app.post("/api/users/register", this::httpHandler0);
-        app.post("/api/users/login", this::httpHandler1);
-        app.get("/", this::httpHandler2);
-        app.get("/login", this::httpHandler3);
-        app.get("/register", this::httpHandler4);
+        app.get("/", this::httpHandler0);
+        app.get("/login", this::httpHandler1);
+        app.get("/register", this::httpHandler2);
+        app.post("/api/users/register", this::httpHandler3);
+        app.post("/api/users/login", this::httpHandler4);
     }
 }

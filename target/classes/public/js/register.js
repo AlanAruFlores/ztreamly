@@ -27,12 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
             success: (response) => {
                 console.log('Success:', response);
                 alert('Usuario registrado exitosamente!');
-                location.href="http://localhost:9090/login.html";
+                location.href="http://localhost:9090/login"
             },
             error: (error) => {
                 console.log('Error:', error);
-                alert('Error al registrar usuario: ' + error.message);
-                location.href="http://localhost:9090/login.html";
+                alert('Error al registrar usuario: ' + error.responseText);
             }
         });
     });
