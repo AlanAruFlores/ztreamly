@@ -75,9 +75,12 @@ public final class JavalinFactory {
         ControllerRegistry registry = new JavalinControllerRegistry(injectorProvider::get);
         registry.register(app);
 
+        //Handlers for secure our app
+        app.before(null, (ctx) -> LOGGER.info("Received {} request for '{}'", ctx.method(), ctx.path()));
+      
+
         // Prevent unhandled exceptions from taking down the web server
         app.exception(Exception.class, (e, ctx) -> exceptionHandlerContext.handle(e, ctx));
-
         app.wsException(
             Exception.class,
             (e, ctx) -> LOGGER.error("Encountered an unhandled exception for WebSockets.", e));
