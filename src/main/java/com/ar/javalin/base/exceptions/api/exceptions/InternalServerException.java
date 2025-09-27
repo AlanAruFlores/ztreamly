@@ -1,7 +1,7 @@
 package com.ar.javalin.base.exceptions.api.exceptions;
 
-public class InternalServerException extends Exception{
-    public InternalServerException() {
-        super("Internal server error");
-    }
+public class InternalServerException extends RuntimeException{
+    public InternalServerException(Exception e) {
+        super("Internal server error: "+e.getMessage());
+    }    
 }

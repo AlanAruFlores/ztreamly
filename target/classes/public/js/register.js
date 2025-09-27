@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
     const registerButton = document.getElementById('register_button');
     registerButton.addEventListener('click', () => {
@@ -20,13 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         $.ajax({
-            url: 'http://localhost:9090/api/users/',
+            url: 'http://localhost:9090/api/users/register',
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(user),
             success: (response) => {
                 console.log('Success:', response);
                 alert('Usuario registrado exitosamente!');
+                location.href="http://localhost:9090/login"
             },
             error: (error) => {
                 console.log('Error:', error);

@@ -6,13 +6,11 @@ import com.ar.javalin.base.dto.request.UserRequestLogin;
 import com.ar.javalin.base.dto.request.UserRequestRegister;
 import com.ar.javalin.base.dto.response.JsonResponseDto;
 import com.ar.javalin.base.dto.response.UserResponseInfo;
-import com.ar.javalin.base.models.User;
 import com.truncon.javalin.mvc.api.Controller;
 import com.truncon.javalin.mvc.api.HttpPost;
 import com.truncon.javalin.mvc.api.JsonResult;
 import com.truncon.javalin.mvc.api.FromBody;
 import com.truncon.javalin.mvc.api.ActionResult;
-import com.truncon.javalin.mvc.api.ContentResult;
 import com.ar.javalin.base.services.UserService;
 
 @Controller(prefix = "/api/users")
