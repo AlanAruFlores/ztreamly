@@ -1,7 +1,7 @@
-
 document.addEventListener('DOMContentLoaded', () => {
-    const registerButton = document.getElementById('login_button');
-    registerButton.addEventListener('click', () => {
+    const loginButton = document.getElementById('login_button');
+    loginButton.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
         console.log('Login button clicked');
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
@@ -10,7 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
             username,
             password
         };
+        location.href="http://localhost:9090/";
 
+        /*
         $.ajax({
             url: 'http://localhost:9090/api/users/login',
             type: 'POST',
@@ -25,6 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log('Error:', error);
                 alert('Error al logear al usuario: ' + error.responseText);
             }
-        });
+        });*/
     });
 });

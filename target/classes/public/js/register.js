@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
     const registerButton = document.getElementById('register_button');
     registerButton.addEventListener('click', () => {
